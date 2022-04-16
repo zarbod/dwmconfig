@@ -12,15 +12,20 @@ static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_red[] = "#d30f23";
 static const char col_red2[] = "#FF0000";
+static const char col_purple[] = "#A020F0";
+static const char col_green[] = "#096641";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+static const char col_teal[]	    = "#0f524a";
+static const char col_wgreen[]	    = "#26966d";
+static const char col_black[]	    = "#000000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_red,  col_red2 },
+	[SchemeNorm] = { col_gray3, col_gray1, col_teal },
+	[SchemeSel]  = { col_gray4, col_black,  col_black },
 };
 
 /* tagging */
@@ -72,6 +77,7 @@ static const char *miccmd[] = { "amixer", "set", "Capture", "toggle", NULL };
 static const char *brupcmd[] = { "sudo", "xbacklight", "-inc", "10", NULL };
 static const char *brdowncmd[] = { "sudo", "xbacklight", "-dec", "10", NULL };
 static const char *ksnipcmd[] = {"ksnip", "-r", NULL};
+static const char *firefoxcmd[] = {"firefox", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,6 +96,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_f,      setfullscreen,  {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -117,6 +124,7 @@ static Key keys[] = {
 	{ 0, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
 	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
 	{ MODKEY|ShiftMask,XK_s, spawn, {.v = ksnipcmd} },
+	{ MODKEY, 			XK_w, 	  spawn,	   {.v = firefoxcmd} },
 };
 
 /* button definitions */
@@ -135,4 +143,9 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
+
+
+
+
 
