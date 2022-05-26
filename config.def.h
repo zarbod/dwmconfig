@@ -23,10 +23,11 @@ static const char col_teal[]	    = "#0f524a";
 static const char col_wgreen[]	    = "#26966d";
 static const char col_black[]	    = "#000000";
 static const char col_orange[]	    = "#b8631d";
+static const char col_par[]	    = "#34eb9e";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_teal },
-	[SchemeSel]  = { col_gray4, col_orange,  col_orange },
+	[SchemeSel]  = { col_gray4, col_par,  col_wgreen },
 };
 
 /* tagging */
@@ -37,7 +38,7 @@ static const char* surf[]      = { "discord", NULL };
 
 static const Launcher launchers[] = {
        /* command       name to display */
-	{ surf,         "discord" },
+	{ surf,         "element" },
 };
 
 static const Rule rules[] = {
@@ -86,7 +87,7 @@ static const char *miccmd[] = { "amixer", "set", "Capture", "toggle", NULL };
 static const char *brupcmd[] = { "sudo", "xbacklight", "-inc", "10", NULL };
 static const char *brdowncmd[] = { "sudo", "xbacklight", "-dec", "10", NULL };
 static const char *ksnipcmd[] = {"ksnip", "-r", NULL};
-static const char *firefoxcmd[] = {"firefox", NULL};
+static const char *firefoxcmd[] = {"firefox-bin", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
