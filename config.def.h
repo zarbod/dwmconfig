@@ -3,7 +3,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -18,27 +18,29 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
+static const char bluesish[]        = "#233b39";
 static const char col_cyan[]        = "#005577";
 static const char col_teal[]	    = "#0f524a";
 static const char col_wgreen[]	    = "#26966d";
 static const char col_black[]	    = "#000000";
 static const char col_orange[]	    = "#b8631d";
 static const char col_par[]	    = "#34eb9e";
+static const char col_ber[]     = "#a8323a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_teal },
-	[SchemeSel]  = { col_gray4, col_par,  col_wgreen },
+	[SchemeNorm] = { col_gray3, col_gray1, col_orange },
+	[SchemeSel]  = { col_gray4, col_ber,  col_red },
 };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 /* launcher commands (They must be NULL terminated) */
-static const char* surf[]      = { "discord", NULL };
+static const char* surf[]      = { "st", NULL };
 
 static const Launcher launchers[] = {
        /* command       name to display */
-	{ surf,         "element" },
+	{ surf,         "terminal" },
 };
 
 static const Rule rules[] = {
@@ -84,10 +86,11 @@ static const char *mutecmd[] = { "amixer", "-q", "set", "Master", "toggle", NULL
 static const char *volupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 static const char *miccmd[] = { "amixer", "set", "Capture", "toggle", NULL };
-static const char *brupcmd[] = { "sudo", "xbacklight", "-inc", "10", NULL };
-static const char *brdowncmd[] = { "sudo", "xbacklight", "-dec", "10", NULL };
+static const char *brupcmd[] = { "xbacklight", "-inc", "10", NULL };
+static const char *brdowncmd[] = { "xbacklight", "-dec", "10", NULL };
 static const char *ksnipcmd[] = {"ksnip", "-r", NULL};
 static const char *firefoxcmd[] = {"firefox-bin", NULL};
+static const char *emacscmd[] = {"emacs", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -135,6 +138,7 @@ static Key keys[] = {
 	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
 	{ MODKEY|ShiftMask,XK_s, spawn, {.v = ksnipcmd} },
 	{ MODKEY, 			XK_w, 	  spawn,	   {.v = firefoxcmd} },
+	{ MODKEY,			XK_e,	  spawn,           {.v = emacscmd  } }
 };
 
 /* button definitions */
